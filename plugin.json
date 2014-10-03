@@ -5,7 +5,7 @@
     "metrics" : [ "BOUNDARY_STOCK_PRICE", "BOUNDARY_STOCK_VOLUME"],
     "dashboards" : [
         {
-         "name": "Stocks", "layout":"d-w=1&d-h=1&d-pad=15&d-bg=none&d-g-BOUNDARY_STOCK_PRICE=0-0-1-1-t&d-g-BOUNDARY_STOCK_VOLUME=0-0-1-1-b"
+         "name": "Stocks", "layout": "d-w=1&d-h=2&d-pad=15&d-bg=none&d-g-BOUNDARY_STOCK_PRICE=0-0-1-1&d-g-BOUNDARY_STOCK_VOLUME=0-1-1-1"
         }
     ],
     "postExtract" : "python post-extract.py",
