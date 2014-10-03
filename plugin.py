@@ -10,7 +10,7 @@ Implements a plugin that gets current stock price and volume
 """
 
 if len(sys.argv) == 1:
-  pollInterval = 20
+  pollInterval = 10
 
 json_data = open("param.json")
 data = json.load(json_data)
@@ -22,6 +22,7 @@ while True:
     price = ystockquote.get_price(ticker)
     volume = ystockquote.get_volume(ticker)
     if volume != 'N/A':
-      print('{0} {1} {2}'.format('BOUNDARY_STOCK_PRICE',price,ticker))
-      print('{0} {1} {2}'.format('BOUNDARY_STOCK_VOLUME',volume,ticker))
+      sys.stdout.write('{0} {1} {2}\n'.format('BOUNDARY_STOCK_PRICE',price,ticker).decode('utf-8'))
+      sys.stdout.write('{0} {1} {2}\n'.format('BOUNDARY_STOCK_VOLUME',volume,ticker).decode('utf-8'))
+      sys.stdout.flush()
   time.sleep(pollInterval)
