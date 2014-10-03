@@ -9,7 +9,7 @@
         }
     ],
     "postExtract" : "python post-extract.py",
-    "paramArray": { "itemTitle": [ "name" ], "schemaTitle": "Stock" },
+    "paramArray": { "itemTitle": [ "ticker" ], "schemaTitle": "Stock" },
     "paramSchema": [
         {
             "title": "Ticker",
