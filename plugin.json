@@ -1,6 +1,6 @@
 {
     "description": "Collects price and volume of a traded stock",
-    "icon" : "icon.png",
+    "icon" : "ticker.png",
     "command" : "python plugin.py",
     "metrics" : [ "BOUNDARY_STOCK_PRICE", "BOUNDARY_STOCK_VOLUME"],
     "dashboards" : [
