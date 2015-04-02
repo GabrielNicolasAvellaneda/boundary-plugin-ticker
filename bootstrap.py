@@ -27,7 +27,8 @@ class Bootstrap:
     """ Run 'cmd' in the shell and return its standard out.
     """
     if echo: print('[cmd] {0}'.format(cmd))
-    out = subprocess.check_output(cmd,stderr=sys.stderr,shell=True)
+    p = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE)
+    out = p.communicate()[0]
     if echo: print(out)
     return out
 
