@@ -26,9 +26,9 @@ class Bootstrap:
   def shellcmd(self,cmd,echo=False):
     """ Run 'cmd' in the shell and return its standard out.
     """
-    if echo: print '[cmd] {0}'.format(cmd)
+    if echo: print('[cmd] {0}'.format(cmd))
     out = subprocess.check_output(cmd,stderr=sys.stderr,shell=True)
-    if echo: print out
+    if echo: print(out)
     return out
 
   def download(self):
