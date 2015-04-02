@@ -1,0 +1,11 @@
+{
+   "items": [
+      {
+         "ticker": "goog"
+      },
+      {
+         "ticker": "ZNGA"
+      }
+   ],
+   "pollInterval": 1000
+}

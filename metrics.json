@@ -1,0 +1,24 @@
+{
+    "result": [
+        {
+            "defaultAggregate": "AVG",
+            "defaultResolutionMS": null,
+            "description": "Current stock price or the end of day's trading.",
+            "displayName": "Stock Price",
+            "displayNameShort": "Stock Price",
+            "isDisabled": 0,
+            "name": "BOUNDARY_STOCK_PRICE",
+            "unit": "number"
+        },
+        {
+            "defaultAggregate": "AVG",
+            "defaultResolutionMS": null,
+            "description": "Current stock volume or the end of day's trading.",
+            "displayName": "Stock Volume",
+            "displayNameShort": "Stock Volume",
+            "isDisabled": 0,
+            "name": "BOUNDARY_STOCK_VOLUME",
+            "unit": "number"
+        }
+    ]
+}
