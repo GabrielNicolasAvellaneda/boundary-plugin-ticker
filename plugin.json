@@ -1,8 +1,8 @@
 {
   "description": "Collects price and volume of a traded stocks",
   "icon": "ticker.png",
-  "command": "py/bin/python plugin.py",
-  "ignore": "config",
+  "command": "pyenv/bin/python plugin.py",
+  "ignore": "pyenv",
   "metrics": [
     "BOUNDARY_STOCK_PRICE",
     "BOUNDARY_STOCK_VOLUME"
