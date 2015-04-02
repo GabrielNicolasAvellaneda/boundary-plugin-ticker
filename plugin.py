@@ -29,8 +29,10 @@ class Ticker():
 		data = json.load(json_data)
 		self.items = data["items"]
 
-	def sendEvent(self):
-		pass
+	def sendEvent(self,title,message,type,timestamp):
+		sys.stdout.write('_bevent:{0}|m:{1}|t:{2}\n'.format(title,message,type,timestamp).decode('utf-8'))
+		sys.stdout.flush()
+
 
 	def sendMeasurement(self,metric,value,source,timestamp):
 		""" Sends measurements to standard out to be read by plugin manager"""
@@ -40,21 +42,20 @@ class Ticker():
 	def run(self):
 		"""Plugin main loop"""
 		self.loadParameters()
-		self.sendEvent()
+		self.sendEvent("Plugin started","Starting ticker plugin","info",int(time.time()))
 		while True:
 			# Loop over the items and lookup the stock price and volume
 			for i in self.items:
 				ticker = str(i["ticker"]).upper()
-    			price = ystockquote.get_price(ticker)
-    			volume = ystockquote.get_volume(ticker)
-    			if volume == 'N/A' or price == 'N/A':
-    				self.sendEvent()
-    				sys.exit(1)
-    			else:
-    				timestamp = int(time.time())
-    				self.sendMeasurement('BOUNDARY_STOCK_PRICE',price,ticker,timestamp)
-    				self.sendMeasurement('BOUNDARY_STOCK_VOLUME',volume,ticker,timestamp)
-				time.sleep(self.pollInterval)
+				price = ystockquote.get_price(ticker)
+				volume = ystockquote.get_volume(ticker)
+				timestamp = int(time.time())
+				if volume == 'N/A' or price == 'N/A':
+					self.sendEvent('Ticker Not Found','Could not find ticker \"{0}\", skipping'.format(ticker),"error",timestamp)
+				else:
+					self.sendMeasurement('BOUNDARY_STOCK_PRICE',price,ticker,timestamp)
+					self.sendMeasurement('BOUNDARY_STOCK_VOLUME',volume,ticker,timestamp)
+			time.sleep(self.pollInterval)
 
 if __name__ == "__main__":
     plugin = Ticker(10)
